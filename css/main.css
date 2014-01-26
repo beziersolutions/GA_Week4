@@ -1,52 +1,55 @@
 body {
-  font-family: monospace;
-  font-size: 20px;
-  text-align: center;
-  background: black;
-  color: lime;
-  margin: 3em;
+    font-family: monospace;
+    font-size: 20px;
+    text-align: center;
+    background: black;
+    color: lime;
+    margin: 3em;
 }
-
 strong {
-  text-decoration: underline;
+    text-decoration: underline;
 }
-
 button {
-  background: lime;
-  color: black;
-  border: none;
-  padding: 10px 15px;
-  font-size: 1.2em;
-  font-family: monospace;
-  font-weight: bold;
+    background: lime;
+    color: black;
+    border: none;
+    padding: 10px 15px;
+    font-size: 1.2em;
+    font-family: monospace;
+    font-weight: bold;
 }
 button:active {
-  background: green;
+    background: green;
 }
-
 .scoreboard {
-  width: 14em;
-  margin: auto;
-  border: 1px solid lime;
+    width: 14em;
+    margin: auto;
+    border: 1px solid lime;
 }
 .scoreboard h2 {
-  border-bottom: 1px solid lime;
-  margin: 0;
-  padding: 10px;
+    border-bottom: 1px solid lime;
+    margin: 0;
+    padding: 10px;
 }
 .scoreboard table {
-  margin: 10px auto;
-  width: 100%;
-  border-collapse: collapse;
+    margin: 10px auto;
+    width: 100%;
+    border-collapse: collapse;
 }
-.scoreboard th, .scoreboard td {
-  text-align: center;
+.scoreboard th,
+.scoreboard td {
+    text-align: center;
 }
 .scoreboard td {
-  font-size: 3em;
-  padding: 0 20px;
+    font-size: 3em;
+    padding: 0 20px;
 }
-
 #status {
-  margin-top: 20px;
+    margin-top: 20px;
+}
+.selection-panel {
+    border: 1px solid lime;
+}
+.selection-panel:after {
+    border: 1px solid white;
 }
