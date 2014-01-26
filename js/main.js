@@ -52,6 +52,12 @@ function updateBotScore(score) {
     d.getElementById('computerScore').innerHTML = score;
 }
 
+function displayOverallResultsUI(){
+    d.getElementById('computerScore').innerHTML = score;
+}
+    
+
+
 
 function displayCount() {
     console.log("player 1 count " + player1_win.toString());
@@ -62,6 +68,7 @@ function displayCount() {
 }
 
 function displayResults() {
+    console.log("=============================");
     console.log(" Overall Total ");
     console.log("player 1 total = " + player1_win.toString());
     console.log(" ======= ");
@@ -70,12 +77,13 @@ function displayResults() {
     console.log("number of draws = " + draw.toString());
     if (player1_win > player2_win) {
         console.log("overall winner is player one ");
+
     } else if (player1_win == player2_win) {
         console.log("DRAW ");
     } else if (player2_win > player1_win) {
         console.log("overall winner is the bot ")
     }
-    console.log("------------------------");
+    console.log("=============================");
 }
 
 
