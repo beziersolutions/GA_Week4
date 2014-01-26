@@ -42,10 +42,23 @@ function makeSelection() {
     }
 }
 
+function updatePlayerScore(score) {
+
+    d.getElementById('humanScore').innerHTML = score;
+}
+
+function updateBotScore(score) {
+
+    d.getElementById('computerScore').innerHTML = score;
+}
+
+
 function displayCount() {
     console.log("player 1 count " + player1_win.toString());
     console.log("bot count " + player2_win.toString());
     console.log("game count " + number_of_games.toString());
+    updatePlayerScore(player1_win);
+    updateBotScore(player2_win);
 }
 
 function displayResults() {
@@ -64,6 +77,8 @@ function displayResults() {
     }
     console.log("------------------------");
 }
+
+
 
 function playGame(selection1, selection2) {
 
