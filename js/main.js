@@ -12,17 +12,11 @@ var number_of_games = 0;
 var draw = 0;
 
 var gameValues = ["rock", "paper", "scissors"];
-console.log("game value " + gameValues[2]);
-//d.getElementById("paper").onclick = getPlayerSelection;
-//d.getElementById("rock").onclick = getPlayerSelection;
+var randomValue = gameValues[Math.floor(gameValues.length * Math.random())];
+console.log("game value " + randomValue);
 
 
 
-function getPlayerSelection() {
-    console.log("button clicked ");
-    playGame("rock");
-    return false;
-}
 
 function playGame(selection1) {
     if (selection1 === "rock") { //write player1 and player2 draw
