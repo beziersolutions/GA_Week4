@@ -21,9 +21,8 @@ function playGame(selection1) {
 function playRandom() {
 
     var gameValues = ["rock", "paper", "scissors"];
-    var randomValue = gameValues[Math.floor(gameValues.length * Math.random())];
+    return randomValue = gameValues[Math.floor(gameValues.length * Math.random())];
     console.log("bot value " + randomValue);
-    return randomValue;
 }
 
 function makeSelection() {
@@ -52,10 +51,10 @@ function updateBotScore(score) {
     d.getElementById('computerScore').innerHTML = score;
 }
 
-function displayOverallResultsUI(){
-    d.getElementById('computerScore').innerHTML = score;
+function displayOverallResultsUI(overall) {
+    d.getElementById('overallWin').innerHTML = overall;
 }
-    
+
 
 
 
@@ -77,11 +76,13 @@ function displayResults() {
     console.log("number of draws = " + draw.toString());
     if (player1_win > player2_win) {
         console.log("overall winner is player one ");
+        displayOverallResultsUI("you");
 
     } else if (player1_win == player2_win) {
         console.log("DRAW ");
     } else if (player2_win > player1_win) {
-        console.log("overall winner is the bot ")
+        console.log("overall winner is the bot ");
+        displayOverallResultsUI("bot");
     }
     console.log("=============================");
 }
