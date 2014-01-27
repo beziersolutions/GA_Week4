@@ -47,6 +47,9 @@ button:active {
 #status {
     margin-top: 20px;
 }
-.results-content {
+.results {
+    color: white;
+}
+#results-content {
     color: white;
 }

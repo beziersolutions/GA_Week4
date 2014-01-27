@@ -52,11 +52,10 @@ function updateBotScore(score) {
 }
 
 function displayOverallResultsUI(overall) {
-    d.getElementById('overallWin').innerHTML = overall;
+
+    d.getElementById('results-content').innerHTML = "The results are in and the winner is:- " + "<strong>" + overall + "</strong>";
+
 }
-
-
-
 
 function displayCount() {
     console.log("player 1 count " + player1_win.toString());
