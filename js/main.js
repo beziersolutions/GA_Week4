@@ -57,6 +57,13 @@ function displayOverallResultsUI(overall) {
 
 }
 
+function displayMatchResult(matchResult) {
+
+    d.getElementById('results-content').innerHTML = matchResult;
+
+}
+
+
 function displayCount() {
     console.log("player 1 count " + player1_win.toString());
     console.log("bot count " + player2_win.toString());
@@ -101,30 +108,39 @@ function playGame(selection1, selection2) {
         ++number_of_games;
         ++draw;
         displayCount();
+        displayMatchResult("player draw because " + selection1 + " = " + selection2);
+    }
 
-    } else if (selection1.id === "paper" && selection2.id === "rock") {
-        ++player1_win;
-        console.log("player 1 wins because " + selection1 + " > rock");
-        ++number_of_games;
-        displayCount();
 
-    } else if (selection1 == "scissors" && selection2 == "paper") {
-        ++player1_win;
-        console.log("player 1 wins because " + selection1 + " > paper");
-        ++number_of_games;
-        displayCount();
-
-    } else if (selection1 == "rock" && selection2 == "scissors") {
-        ++player1_win;
-        ++number_of_games;
-        console.log("player 1 wins because " + selection1 + " > scissors ");
-        displayCount();
-
-    } else {
-        console.log("bot wins because " + selection2 + " is greater than " + selection1);
-        ++player2_win;
-        ++number_of_games;
-        displayCount();
+else if (selection1.id === "paper" && selection2.id === "rock") {
+    ++player1_win;
+    console.log("player 1 wins because " + selection1 + " > rock");
+    ++number_of_games;
+    displayCount();
+    displayMatchResult("player 1 wins because " + selection1 + " > rock");
+} 
+    else if (selection1 == "scissors" && selection2 == "paper") {
+    ++player1_win;
+    console.log("player 1 wins because " + selection1 + " > paper");
+    ++number_of_games;
+    displayCount();
+    displayMatchResult("player 1 wins because " + selection1 + " > paper");
+    } 
+    
+    else if (selection1 == "rock" && selection2 == "scissors") {
+    ++player1_win;
+    ++number_of_games;
+    console.log("player 1 wins because " + selection1 + " > scissors ");
+    displayCount();
+    displayMatchResult("player 1 wins because " + selection1 + " > scissors ");
+    } 
+    
+    else {
+    console.log("bot wins because " + selection2 + " is greater than " + selection1);
+    ++player2_win;
+    ++number_of_games;
+    displayCount();
+    displayMatchResult("bot wins because " + selection2 + " is greater than " + selection1);
     }
 }
 
