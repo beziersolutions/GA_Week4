@@ -10,6 +10,7 @@ var number_of_games = 0;
 var draw = 0;
 
 
+
 function playGame(selection1) {
     if (selection1 === "rock") {
         console.log("playGame matched draw");
@@ -28,18 +29,22 @@ function playRandom() {
 function makeSelection() {
 
     var buttons = d.getElementsByTagName("button");
+
     var buttonsCount = buttons.length;
 
     for (var i = 0; i <= buttonsCount; i += 1) {
-        buttons[i].onclick = function (e) {
+
+        buttons[i].onclick = function (event) {
 
             console.log("selected id is " + this.id);
             var botValue = playRandom();
 
             playGame(this.id, botValue);
         }
+
     }
 }
+
 
 function updatePlayerScore(score) {
 
@@ -53,7 +58,7 @@ function updateBotScore(score) {
 
 function displayOverallResultsUI(overall) {
 
-    d.getElementById('results-content').innerHTML = "The results are in and the winner is:- " + "<strong>" + overall + "</strong>";
+    d.getElementById('results-content').innerHTML = "The results are in and the winner is:- " + "<strong>" + overall + "</strong>" + "<br> total player wins " + player1_win.toString() + "<br> total bot wins " + player2_win.toString() + "<br>total draws " + draw.toString();
 
 }
 
@@ -86,13 +91,13 @@ function displayResults() {
 
     } else if (player1_win == player2_win) {
         console.log("DRAW ");
+        displayOverallResultsUI("no winners");
     } else if (player2_win > player1_win) {
         console.log("overall winner is the bot ");
         displayOverallResultsUI("bot");
     }
     console.log("=============================");
 }
-
 
 
 function playGame(selection1, selection2) {
@@ -102,7 +107,6 @@ function playGame(selection1, selection2) {
         return;
     }
 
-
     if (selection1 === selection2) {
         console.log("player draw because " + selection1 + " = " + selection2);
         ++number_of_games;
@@ -111,37 +115,53 @@ function playGame(selection1, selection2) {
         displayMatchResult("player draw because " + selection1 + " = " + selection2);
     }
 
-
-else if (selection1.id === "paper" && selection2.id === "rock") {
-    ++player1_win;
-    console.log("player 1 wins because " + selection1 + " > rock");
-    ++number_of_games;
-    displayCount();
-    displayMatchResult("player 1 wins because " + selection1 + " > rock");
-} 
-    else if (selection1 == "scissors" && selection2 == "paper") {
-    ++player1_win;
-    console.log("player 1 wins because " + selection1 + " > paper");
-    ++number_of_games;
-    displayCount();
-    displayMatchResult("player 1 wins because " + selection1 + " > paper");
-    } 
-    
-    else if (selection1 == "rock" && selection2 == "scissors") {
-    ++player1_win;
-    ++number_of_games;
-    console.log("player 1 wins because " + selection1 + " > scissors ");
-    displayCount();
-    displayMatchResult("player 1 wins because " + selection1 + " > scissors ");
-    } 
-    
-    else {
-    console.log("bot wins because " + selection2 + " is greater than " + selection1);
-    ++player2_win;
-    ++number_of_games;
-    displayCount();
-    displayMatchResult("bot wins because " + selection2 + " is greater than " + selection1);
+    if (selection1 === "rock") {
+        if (selection2 === "paper") {
+            displayMatchResult("bot wins because " + selection2 + " > " + selection1);
+            ++number_of_games;
+            ++player1_win;
+            displayCount();
+        } else {
+            if (selection2 === "scissors") {
+                displayMatchResult("player1 wins because " + selection1 + " > " + selection2);
+                ++number_of_games;
+                ++player2_win;
+                displayCount();
+            }
+        }
     }
+
+    if (selection1 === "paper") {
+        if (selection2 === "rock") {
+            displayMatchResult("player 1 wins because " + selection1 + " > " + selection2);
+            ++number_of_games;
+            ++player1_win;
+            displayCount();
+        } else {
+            if (selection2 === "scissors") {
+                displayMatchResult("bot wins because " + selection2 + " > " + selection1);
+                ++number_of_games;
+                ++player2_win;
+                displayCount();
+            }
+        }
+    }
+    if (selection1 === "scissors") {
+        if (selection2 === "rock") {
+            displayMatchResult("bot wins because " + selection2 + " > " + selection1);
+            ++number_of_games;
+            ++player2_win;
+            displayCount();
+        } else {
+            if (selection2 === "paper") {
+                displayMatchResult("player 1 wins because " + selection1 + " > " + selection2);
+                ++number_of_games;
+                ++player1_win;
+                displayCount();
+            }
+        }
+    }
+
 }
 
-makeSelection();
+window.onload(makeSelection());
