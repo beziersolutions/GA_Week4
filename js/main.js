@@ -36,9 +36,9 @@ function makeSelection() {
 
         buttons[i].onclick = function (event) {
 
-            console.log("selected id is " + this.id);
+            console.log("player value is " + this.id);
             var botValue = playRandom();
-
+            console.log("bot value is " + botValue);
             playGame(this.id, botValue);
         }
 
