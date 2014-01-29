@@ -32,7 +32,7 @@ function makeSelection() {
 
     var buttonsCount = buttons.length;
 
-    for (var i = 0; i <= buttonsCount; i += 1) {
+    for (var i = 0; i <= 2; i += 1) {
 
         buttons[i].onclick = function (event) {
 
@@ -102,7 +102,7 @@ function displayResults() {
 
 function playGame(selection1, selection2) {
 
-    if (number_of_games === 4) {
+    if (number_of_games === 10) {
         displayResults();
         return;
     }
@@ -164,4 +164,4 @@ function playGame(selection1, selection2) {
 
 }
 
-window.onload(makeSelection());
+makeSelection();
