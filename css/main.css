@@ -53,3 +53,13 @@ button:active {
 #results-content {
     color: white;
 }
+
+#playAgain {
+    background: lime;
+    color: black;
+    border: none;
+    padding: 10px 15px;
+    font-size: 1.2em;
+    font-family: monospace;
+    font-weight: bold;
+}

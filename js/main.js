@@ -4,26 +4,13 @@ var player1;
 var player1_win = 0;
 var player2;
 var player2_win = 0;
-
-
 var number_of_games = 0;
 var draw = 0;
-
-
-
-function playGame(selection1) {
-    if (selection1 === "rock") {
-        console.log("playGame matched draw");
-    } else {
-        console.log("not matched");
-    }
-}
 
 function playRandom() {
 
     var gameValues = ["rock", "paper", "scissors"];
     return randomValue = gameValues[Math.floor(gameValues.length * Math.random())];
-    console.log("bot value " + randomValue);
 }
 
 function makeSelection() {
@@ -36,9 +23,10 @@ function makeSelection() {
 
         buttons[i].onclick = function (event) {
 
-            console.log("player value is " + this.id);
+            console.info("player value is " + this.id);
             var botValue = playRandom();
-            console.log("bot value is " + botValue);
+            console.info("bot value is " + botValue);
+
             playGame(this.id, botValue);
         }
 
@@ -58,9 +46,15 @@ function updateBotScore(score) {
 
 function displayOverallResultsUI(overall) {
 
-    d.getElementById('results-content').innerHTML = "The results are in and the winner is:- " + "<strong>" + overall + "</strong>" + "<br> total player wins " + player1_win.toString() + "<br> total bot wins " + player2_win.toString() + "<br>total draws " + draw.toString();
-
+    d.getElementById('results-content').innerHTML = "The results are in and the winner is:- " 
+    + "<strong>" + overall + "</strong>" 
+    + "<br> total player wins " + player1_win.toString() 
+    + "<br> total bot wins " + player2_win.toString() + "<br>total draws " 
+    + draw.toString() 
+    + "<br><br><input type=\"button\" id=\"playAgain\" value=\"Play Again\" onClick=\"window.location.reload()\">";
 }
+
+
 
 function displayMatchResult(matchResult) {
 
@@ -108,7 +102,6 @@ function playGame(selection1, selection2) {
     }
 
     if (selection1 === selection2) {
-        console.log("player draw because " + selection1 + " = " + selection2);
         ++number_of_games;
         ++draw;
         displayCount();
