@@ -44,6 +44,13 @@ function updateBotScore(score) {
     d.getElementById('computerScore').innerHTML = score;
 }
 
+
+function updateGameCount() {
+
+    d.getElementById('game-count').innerHTML = "you have played " + number_of_games.toString() + " out of 10 games";
+}
+
+
 function displayOverallResultsUI(overall) {
 
     d.getElementById('results-content').innerHTML = "The results are in and the winner is:- " 
@@ -69,6 +76,7 @@ function displayCount() {
     console.log("game count " + number_of_games.toString());
     updatePlayerScore(player1_win);
     updateBotScore(player2_win);
+    updateGameCount();
 }
 
 function displayResults() {
@@ -105,19 +113,21 @@ function playGame(selection1, selection2) {
         ++number_of_games;
         ++draw;
         displayCount();
+
         displayMatchResult("player draw because " + selection1 + " = " + selection2);
     }
 
     if (selection1 === "rock") {
         if (selection2 === "paper") {
-            displayMatchResult("bot wins because " + selection2 + " > " + selection1);
             ++number_of_games;
+            displayMatchResult("bot wins because " + selection2 + " > " + selection1);            
             ++player1_win;
             displayCount();
+
         } else {
             if (selection2 === "scissors") {
-                displayMatchResult("player1 wins because " + selection1 + " > " + selection2);
                 ++number_of_games;
+                displayMatchResult("player1 wins because " + selection1 + " > " + selection2);        
                 ++player2_win;
                 displayCount();
             }
@@ -126,10 +136,12 @@ function playGame(selection1, selection2) {
 
     if (selection1 === "paper") {
         if (selection2 === "rock") {
+                        ++number_of_games;
             displayMatchResult("player 1 wins because " + selection1 + " > " + selection2);
-            ++number_of_games;
+
             ++player1_win;
             displayCount();
+
         } else {
             if (selection2 === "scissors") {
                 displayMatchResult("bot wins because " + selection2 + " > " + selection1);
@@ -141,16 +153,19 @@ function playGame(selection1, selection2) {
     }
     if (selection1 === "scissors") {
         if (selection2 === "rock") {
+                        ++number_of_games;
             displayMatchResult("bot wins because " + selection2 + " > " + selection1);
-            ++number_of_games;
+
             ++player2_win;
             displayCount();
+
         } else {
             if (selection2 === "paper") {
+                                ++number_of_games;
                 displayMatchResult("player 1 wins because " + selection1 + " > " + selection2);
-                ++number_of_games;
                 ++player1_win;
                 displayCount();
+
             }
         }
     }
